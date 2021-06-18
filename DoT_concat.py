@@ -9,8 +9,8 @@ def GUI():
     """
     sg.theme('DarkBlue13')
     layout = [
-              [sg.Text('Co-Assembly Input Folder'), sg.Input(), sg.FolderBrowse()],
-              [sg.Text('Merged Data Output Folder'), sg.Input(), sg.FolderBrowse()],
+              [sg.Text('Merged Co-Assemlby Files'), sg.Input(), sg.FolderBrowse()],
+              [sg.Text('Concatenated Data Output Folder'), sg.Input(), sg.FolderBrowse()],
               [sg.Submit(), sg.Cancel()]]
 
     window = sg.Window('Folder Selection', layout)
