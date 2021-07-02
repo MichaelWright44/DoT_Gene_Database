@@ -1,4 +1,7 @@
 # Other files and folders
-*.txt
+*.txt\
+*.tsv\
+!requirements.txt
+
 *.csv
 
