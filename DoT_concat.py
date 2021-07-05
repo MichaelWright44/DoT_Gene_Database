@@ -45,6 +45,7 @@ def Concat(data_path = '', save_path = '', data = None):
     for col in result_final[col_list]:
         result_final.rename( columns = {col: col + '_gene'}, inplace = True)
 
+    print('- saving Gene_Results.tsv -')
     result_final.to_csv(os.path.join(save_dir,'Gene_Results.tsv'),sep = '\t', index = False)
     print('- done saving file -')
     

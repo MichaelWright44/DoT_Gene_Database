@@ -6,6 +6,7 @@ import PySimpleGUI as sg
 import DoT_coassembly
 import DoT_concat
 import DoT_taxonomy
+import DoT_bin_info
 """
  Step 1: Merge > Concat > Taxonamy
  
@@ -15,22 +16,44 @@ import DoT_taxonomy
      - pass the merged and concated and binned data back to this script to then save the data in a resulting .tsv
      
 """
+def GUI():
+    """
+    GUI for Co-assembly folder locations and for saving file locations
+    """
+    sg.theme('DarkBlue13')
+    layout = [
+              [sg.Text('Input Data Folder'), sg.Input(), sg.FolderBrowse()],
+              [sg.Text('File Output Folder'), sg.Input(), sg.FolderBrowse()],
+              [sg.Submit(), sg.Cancel()]]
 
-database = {}
-data_dir  = input("folder path with co-assembly folders, taxonoamy folder and first.csv file: ")
-tax_dir = ''
+    window = sg.Window('Folder Selection', layout)
 
-for subdir, dirs, files in os.walk(data_dir):
-	if subdir.endswith("genes"):
-		database[subdir.split('-')[0]] = DoT_coassembly.Merge(subdir, data_dir)
-	elif subdir.endswith("taxonomy"):
-		tax_dir = subdir
+    event, values = window.read()
+    window.close()
+    
+    return(values[0], values[1])
 
-for subdir, dirs, files in os.walk (data_dir):
-	for file in files:
-		if file == 'first.csv':
-			first_dir = os.path.join(data_dir,'first.csv')
+def main():
+	database = {}
+	data_dir, save_dir = GUI()
+	tax_dir = ''
+	bin_dir = ''
 
-result = DoT_concat.Concat(data_dir, data_dir,database)
+	for subdir, dirs, files in os.walk(data_dir):
+		if subdir.endswith("genes"):
+			database[subdir.split('-')[0]] = DoT_coassembly.Merge(subdir, save_dir)
+		elif subdir.endswith("taxonomy"):
+			tax_dir = subdir
+		elif subdir.endswith("summaries"):
+			bin_dir = subdir
 
-DoT_taxonomy.Taxonomy(result, first_dir, tax_dir, data_dir)
+	result = DoT_concat.Concat(data_dir, save_dir,database)
+
+	bin_info = DoT_bin_info.bin_taxonomy(bin_dir)
+
+	DoT_taxonomy.Taxonomy(result, bin_info, tax_dir, save_dir)
+
+	print('- Finished File Generation -')
+
+if __name__ == '__main__':
+	main()
