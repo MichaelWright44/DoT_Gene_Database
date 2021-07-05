@@ -1,5 +1,10 @@
+
 # DoT_Gene_Database
 gene database for Dartmouth Ocean Tech primer references
+
+TODO: update with relevent steps for third script and shell script
+ 
+NEED TO UPDATE FILE STRUCTURE TO MAKE REPEATABILITY EASY, THE ABOVE INFO IS OUTDATED FOR THE MOMENT
 
 - removed tracking for large input .txt files and output .csv files
 - local file storage required until remote server can be setup
@@ -19,4 +24,4 @@ pip install -r requirements.txt
  - after merging each co-assembly you should now have a merged .tsv file of each co-assembly in 1 folder
  - run DoT_concat.py and select the input folder as the location of the merged files
  
- TODO: update with relevent steps for third script and shell script
+
