@@ -36,7 +36,7 @@ pip install -r requirements.txt
 +---[co-assembly]-All-genes   #same as the folder above, repeated for each co-assembly
 |       ...
 |
-+---coassembly-bins-taxonomy  #contains taxonomy data for each co-assembly, in this example there are 5 co-assemblys
++---coassembly-bins-taxonomy  #contains taxonomy data for each co-assembly (in this case 5)
         azcf-scg-taxonomy-bins.txt
         azcs-scg-taxonomy-bins.txt
         azof-scg-taxonomy-bins.txt
