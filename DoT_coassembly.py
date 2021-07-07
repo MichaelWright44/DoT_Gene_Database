@@ -5,7 +5,7 @@ import PySimpleGUI as sg
 
 def GUI():
     """
-    GUI for Co-assembly folder locations and for saving file locations
+    - GUI for Co-assembly folder locations and for saving file locations
     """
     sg.theme('DarkBlue13')
     layout = [
@@ -34,7 +34,11 @@ def cell_merge (heading, merge_key, database, merge_column):
         database[heading + '_result'] = database[heading + '_result'].merge(section[0], on = [merge_column], how = 'outer')
         
 def Merge (data_path, save_path):   
-    #need to not call the GUI for each use case in the concat script
+    """
+    - Reads in files from a specific co-assembly folder, re-labels any dupplicate columns to be merged
+    - Saves files to the given save_dir and returns the co-assembly DataFrame
+    """
+
     database = {}
     file_name = ''
     data_dir, save_dir = data_path, save_path

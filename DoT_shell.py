@@ -8,17 +8,11 @@ import DoT_concat
 import DoT_taxonomy
 import DoT_bin_info
 """
- Step 1: Merge > Concat > Taxonamy
- 
- required for this to work:
-     - feed in each path for the location of the required files to their associated scripts
-     - ensure that we don't ask main() for a return value and instead write another function to be called that returns the data and doesn't call the GUI
-     - pass the merged and concated and binned data back to this script to then save the data in a resulting .tsv
-     
+ Outline: co_assembly > concat > bin_info > taxonamy
 """
 def GUI():
     """
-    GUI for Co-assembly folder locations and for saving file locations
+    - GUI for Co-assembly folder locations and for saving file locations
     """
     sg.theme('DarkBlue13')
     layout = [

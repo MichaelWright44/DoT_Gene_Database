@@ -2,6 +2,9 @@ import pandas as pd
 import os
 
 def bin_taxonomy (data_dir):
+    """
+    - Reads in data from 'anvio_bins_COG_summaries' generates a DataFrame and returns it
+    """
     
     cols_list =  ['gene_callers_id', 'contig']
     bin_info = pd.DataFrame()

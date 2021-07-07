@@ -3,10 +3,13 @@ from functools import reduce
 import os
 import PySimpleGUI as sg
 
-#def contig_bins():
-#remember to take 'first_path' in as an arguement and not have it found in this function
-#also need result passed to it as well from the shell script
+
 def Taxonomy(result, bin_info, tax_dir, save_dir):
+    """
+    - Takes in results from concatenated co-assembly DataFrame & bin_info to merge
+    - Uses 'gene_caller_id, contig, and co_assembly' to merge the two DataFrames
+    """
+
     
     taxonomy = pd.DataFrame()
 

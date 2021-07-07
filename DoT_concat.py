@@ -5,7 +5,7 @@ import PySimpleGUI as sg
 
 def GUI():
     """
-    GUI for Co-assembly folder locations and for saving file locations
+    - GUI for Co-assembly folder locations and for saving file locations
     """
     sg.theme('DarkBlue13')
     layout = [
@@ -21,6 +21,9 @@ def GUI():
     return(values[0], values[1])
 
 def Concat(data_path = '', save_path = '', data = None):
+    """
+    - Takes all data from the merged co-assembly DataFrames and concats them together into one DataFrame
+    """
     
     data_dir, save_dir = data_path, save_path
     database = {}
