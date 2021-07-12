@@ -27,6 +27,15 @@ def GUI():
     
     return(values[0], values[1])
 
+def File_check(data, bin_dir, tax_dir):
+	if data == None:
+		raise Exception("Missing co-assembly data in file structure")
+	elif bin_dir = '':
+		raise Exception("Missing 'anvio_bins_COG_summaries' folder ")
+	elif tax_dir = '':
+		raise Exception("Missing 'coassembly-bins-taxonomy' folder")
+	pass
+
 def main():
 	database = {}
 	data_dir, save_dir = GUI()
@@ -34,6 +43,7 @@ def main():
 	bin_dir = ''
 
 	for subdir, dirs, files in os.walk(data_dir):
+
 		if subdir.endswith("genes"):
 			database[subdir.split('-')[0]] = DoT_coassembly.Merge(subdir, save_dir)
 		elif subdir.endswith("taxonomy"):
@@ -41,11 +51,13 @@ def main():
 		elif subdir.endswith("summaries"):
 			bin_dir = subdir
 
-	result = DoT_concat.Concat(data_dir, save_dir,database)
+	File_check(database, bin_dir, tax_dir)
+
+	co_assemblys = DoT_concat.Concat(data_dir, save_dir,database)
 
 	bin_info = DoT_bin_info.bin_taxonomy(bin_dir)
 
-	DoT_taxonomy.Taxonomy(result, bin_info, tax_dir, save_dir)
+	DoT_taxonomy.Taxonomy(co_assemblys, bin_info, tax_dir, save_dir)
 
 	print('- Finished File Generation -')
 
