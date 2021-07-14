@@ -30,9 +30,9 @@ def GUI():
 def File_check(data, bin_dir, tax_dir):
 	if data == None:
 		raise Exception("Missing co-assembly data in file structure")
-	elif bin_dir = '':
+	elif bin_dir == '':
 		raise Exception("Missing 'anvio_bins_COG_summaries' folder ")
-	elif tax_dir = '':
+	elif tax_dir == '':
 		raise Exception("Missing 'coassembly-bins-taxonomy' folder")
 	pass
 
