@@ -1,7 +1,7 @@
 import pandas as pd
 from functools import reduce
 import os
-import PySimpleGUI as sg
+#import PySimpleGUI as sg
 
 
 def Taxonomy(result, bin_info, tax_dir, save_dir):

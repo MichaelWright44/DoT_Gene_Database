@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 from functools import reduce
-import PySimpleGUI as sg
+#import PySimpleGUI as sg
 
 import DoT_coassembly
 import DoT_concat
@@ -38,7 +38,9 @@ def File_check(data, bin_dir, tax_dir):
 
 def main():
 	database = {}
-	data_dir, save_dir = GUI()
+	#data_dir, save_dir = GUI()
+	data_dir = input("Input Data Folder: ")
+	save_dir = input("File Output Folder: ")
 	tax_dir = ''
 	bin_dir = ''
 
