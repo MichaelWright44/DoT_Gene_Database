@@ -1,4 +1,32 @@
 # config.py
+#defined multiple configs to be used in development and production of flask app
+#make sure to turn "Debug" off in production!!!
 
-#enable Flask's debugging features. Make sure to set to 'False' for production
-DEBUG = True
+class Config(object):
+    """
+    Common configurations
+    """
+
+    # Put any configurations here that are common across all environments
+
+
+class DevelopmentConfig(Config):
+    """
+    Development configurations
+    """
+
+    DEBUG = True
+    SQLALCHEMY_ECHO = True
+
+
+class ProductionConfig(Config):
+    """
+    Production configurations
+    """
+
+    DEBUG = False
+
+app_config = {
+    'development': DevelopmentConfig,
+    'production': ProductionConfig
+}
