@@ -7,6 +7,7 @@ import DoT_coassembly
 import DoT_concat
 import DoT_taxonomy
 import DoT_bin_info
+
 """
  Outline: co_assembly > concat > bin_info > taxonamy
 """
@@ -34,7 +35,8 @@ def File_check(data, bin_dir, tax_dir):
 		raise Exception("Missing 'anvio_bins_COG_summaries' folder ")
 	elif tax_dir == '':
 		raise Exception("Missing 'coassembly-bins-taxonomy' folder")
-	pass
+	else:
+		pass
 
 def main():
 	database = {}
